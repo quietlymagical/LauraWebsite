@@ -10,5 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 Github Repository: [Link](https://github.com/quietlymagical)
+
 My Website: [Link](https://quietlymagical.github.io/LauraWebsite/)
+
 Fun Fact: 
