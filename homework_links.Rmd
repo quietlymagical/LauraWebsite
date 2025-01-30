@@ -1,5 +1,5 @@
 ---
-title: "homework_links"
+title: "Homework Links"
 author: "Laura J. Costello"
 date: "2025-01-22"
 output: html_document
