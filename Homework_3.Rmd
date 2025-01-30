@@ -1,0 +1,127 @@
+---
+title: "Homework_3"
+author: "Laura J. Costello"
+date: "2025-01-29"
+output:
+  html_document: 
+    theme: cerulean
+    number_sections: false
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+I chose to make my life much harder than it needed to be by trying to do the first few problems in R code instead of find/replace in Notepad++. As you'll see, this got tiresome and I eventually abandoned the effort (for now!)
+
+## Problem 1
+```
+#put the data in a file in the current directory called input_data.r
+FileInput = readLines("input_data.r") 
+print(FileInput)
+test_expression <- " [ ]+"
+print(test_expression)
+replacement <- ","
+print(replacement)
+output <- gsub(test_expression, replacement, FileInput)
+print(output)
+```
+
+or!
+
+```
+#take the input as a string
+Input = "First String    Second      1.22      3.4
+Second          More Text   1.555555  2.2220
+Third           x           3         124" 
+print(Input)
+test_expression <- " [ ]+"
+print(test_expression)
+replacement <- ","
+print(replacement)
+output <- gsub(test_expression, replacement, FileInput)
+print(output)
+```
+
+## Problem 2
+```
+input_string <- "Ballif, Bryan, University of Vermont
+Ellison, Aaron, Harvard Forest
+Record, Sydne, Bryn Mawr"
+print(input_string)
+find_expression <- "(.*), (.*), (.*)"
+writeLines(find_expression) #check how R will read it
+output_expression <- "\\2 \\1 (\\3)"
+writeLines(output_expression) #check how R will read it
+output_string <- NULL #make sure we're starting clean
+output_string <- str_replace_all(input_string,find_expression,output_expression)
+print(output_string)
+```
+## Problem 3
+```
+input_string <- "0001 Georgia Horseshoe.mp3 0002 Billy In The Lowground.mp3 0003 Winder Slide.mp3 0004 Walking Cane.mp3"
+find_expression <- ".mp3 *"
+writeLines(find_expression)
+replace_expression <- ".mp3\n"
+writeLines(replace_expression)
+output_string <- str_replace_all(input_string,find_expression,replace_expression)
+print(output_string)
+```
+## Problem 4
+```
+#in notepad++: find (\d+) (.*).mp3$ 
+#replace with \2_\1.mp3
+```
+It works! Unlike this:
+```
+#the below (intended to effect the same as above) doesn't work
+find_expression <- "(\\d+) (.*).mp3$" #this works perfectly in notepad++ but here it seems like maybe the .* is matching even new lines (against documentation?), so it's reading the whole thing as a single match?
+writeLines(find_expression)
+output_expression <- "\\2_\\1.mp3"
+writeLines(output_expression)
+output_string <- str_replace_all(input_string,find_expression,output_expression)
+print(output_string)
+#giving up on the above - too much time spent
+```
+## Problem 5
+```
+#Find a letter at the start of a line and grab it, ignore until you see a comma, grab everything til the next comma, ignore everything til the next comma, grab what's left to the end of the line. 
+#find: ^(\w).*,(.*),.*,(.*)$
+#replace: \1_\2,\3
+```
+## Problem 6
+```
+# similar to above, but just grab the first 4 letters after the first comma in your second grab
+#find: ^(\w).*,(.{4}).*,.*,(.*)$
+#replace: \1_\2,\3
+```
+## Problem 7
+```
+# trivial after the last one
+# find: ^(.{3}).*,(.{3}).*,(.*),(.*)$
+# replace: \1\2, \4, \3
+```
+## Problem 8
+```
+# Q: Look at the pathogen_binary column-what input are you expecting to see in this column?
+# A1: When the pathogen_load is zero, I would expect pathogen_binary always to be 0, not NA. So let's find places a row ends in zero and replace the NA with a 0
+# find: (.*)(,NA,)(.*)0$
+# replace: \1,0,\30
+
+# A2: When the pathogen_load is non-zero, I would expect pathogen_binary always to be 1, not NA. So then let's find places a row ends in anything but 0 and replace NA with a 1
+# find: (.*)(,NA,)(.*)[^0]$
+# replace: \1,1,\30
+
+# Q: What are the main errors in bombus_spp and host_plant?
+# A: Stray characters like #, @, etc. 
+# it was almost easy, but the damn underscore is a \w character, so we'll do it the wordy way
+# find: [^\[a-z\]\[A-Z\]\[0-9\],\./ \n\r] #Windows needs the \n\r not just \n
+# replace: #nothing
+
+# Q: Is there anything visibly wrong with bee_caste?
+# A: Extra spaces at the end of some. this doesn't seem to appear anywhere else, so let's just kill all " ,"
+# find: " ," #omit the parens - just need you to see there's a space
+# replace: ,
+#
+# Looking good! 
+```
