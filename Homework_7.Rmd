@@ -1,0 +1,11 @@
+---
+title: "Homework_7"
+author: "Laura J. Costello"
+date: "2025-02-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
