@@ -80,7 +80,7 @@ hist(dataBySpecies$n)
 
 ```
 
-Ok, how about a negative binomial? 
+Ok, how about a negative binomial??
 
 ```{r}
 library(MASS)
