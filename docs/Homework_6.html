@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Laura J. Costello" />
+
+<meta name="date" content="2025-02-26" />
+
+<title>Homework_6</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="homework_links.html">Homework</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Homework_6</h1>
+<h4 class="author">Laura J. Costello</h4>
+<h4 class="date">2025-02-26</h4>
+
+</div>
+
+
+<div id="lab-6" class="section level2">
+<h2>Lab 6</h2>
+<div
+id="i-pulled-down-a-real-dataset-from-the-inaturalist-project-pollination-interactions-on-plants-httpswww.inaturalist.orgprojectspollinator-interactions-on-plants-pip-of-the-ne-us"
+class="section level4">
+<h4>I pulled down a real dataset from the iNaturalist project
+Pollination Interactions on Plants: <a
+href="https://www.inaturalist.org/projects/pollinator-interactions-on-plants-pip-of-the-ne-us"
+class="uri">https://www.inaturalist.org/projects/pollinator-interactions-on-plants-pip-of-the-ne-us</a></h4>
+</div>
+<div
+id="each-row-is-an-observation-of-a-fritillary-butterfly-in-the-northeast"
+class="section level4">
+<h4>Each row is an observation of a Fritillary butterfly in the
+northeast</h4>
+</div>
+<div
+id="each-observation-includes-a-date-butterfly-taxon-name-and-the-name-of-the-plant-taxon-it-was-observed-on-mandatory-in-this-project"
+class="section level4">
+<h4>Each observation includes a date, butterfly taxon name, and the name
+of the plant taxon it was observed on (mandatory in this project)</h4>
+</div>
+<div
+id="i-want-to-look-at-how-many-plant-species-each-butterfly-species-has-been-observed-associating-with"
+class="section level4">
+<h4>I want to look at how many plant species each butterfly species has
+been observed associating with</h4>
+<pre class="r"><code># Read data in to a data frame from CSV exported from iNat
+getwd()</code></pre>
+<pre><code>## [1] &quot;C:/Users/ljcos/OneDrive/Documents/UVM/Spring 2025/Computational Biology/Website/LauraWebsite&quot;</code></pre>
+<pre class="r"><code>list.files()</code></pre>
+<pre><code>##  [1] &quot;_site.yml&quot;          &quot;about.Rmd&quot;          &quot;docs&quot;              
+##  [4] &quot;Homework_3.Rmd&quot;     &quot;Homework_4.Rmd&quot;     &quot;Homework_5.Rmd&quot;    
+##  [7] &quot;Homework_6.Rmd&quot;     &quot;Homework_7.Rmd&quot;     &quot;homework_links.Rmd&quot;
+## [10] &quot;HW1.Rmd&quot;            &quot;index.Rmd&quot;          &quot;LauraWebsite.Rproj&quot;</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.4     ✔ readr     2.1.5
+## ✔ forcats   1.0.0     ✔ stringr   1.5.1
+## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<pre class="r"><code>setwd(&quot;C:/Users/ljcos/OneDrive/Documents/UVM/Spring 2025/Computational Biology/Lab5&quot;)
+real_data &lt;- read.csv(file=&quot;real_data2-reduced.csv&quot;,
+                      header=TRUE,
+                      sep=&quot;,&quot;,
+                      fileEncoding=&quot;UTF-8&quot;
+                      ) #nrows=400
+glimpse(real_data)</code></pre>
+<pre><code>## Rows: 2,434
+## Columns: 40
+## $ id                               &lt;int&gt; 22572, 24295, 41439, 116155, 154515, …
+## $ observed_on                      &lt;chr&gt; &quot;6/21/2011&quot;, &quot;7/5/2011&quot;, &quot;6/22/2010&quot;,…
+## $ time_observed_at                 &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;2010-07-15 1…
+## $ time_zone                        &lt;chr&gt; &quot;Eastern Time (US &amp; Canada)&quot;, &quot;Easter…
+## $ user_id                          &lt;int&gt; 1175, 1175, 3847, 1620, 11340, 11340,…
+## $ user_login                       &lt;chr&gt; &quot;wabbytwax&quot;, &quot;wabbytwax&quot;, &quot;rpayne&quot;, &quot;…
+## $ user_name                        &lt;chr&gt; &quot;John Beatty&quot;, &quot;John Beatty&quot;, &quot;Ron Pa…
+## $ created_at                       &lt;chr&gt; &quot;2011-06-23 03:31:37 UTC&quot;, &quot;2011-07-0…
+## $ updated_at                       &lt;chr&gt; &quot;2024-08-27 18:50:03 UTC&quot;, &quot;2025-02-0…
+## $ quality_grade                    &lt;chr&gt; &quot;research&quot;, &quot;research&quot;, &quot;research&quot;, &quot;…
+## $ license                          &lt;chr&gt; &quot;CC-BY-NC&quot;, &quot;CC-BY-NC&quot;, &quot;CC-BY-NC&quot;, &quot;…
+## $ url                              &lt;chr&gt; &quot;http://www.inaturalist.org/observati…
+## $ image_url                        &lt;chr&gt; &quot;https://static.inaturalist.org/photo…
+## $ sound_url                        &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ tag_list                         &lt;chr&gt; &quot;&quot;, &quot;butterfly great spangled fritill…
+## $ num_identification_agreements    &lt;int&gt; 2, 1, 1, 1, 1, 1, 1, 3, 2, 2, 1, 1, 1…
+## $ num_identification_disagreements &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ captive_cultivated               &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FA…
+## $ oauth_application_id             &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ place_guess                      &lt;chr&gt; &quot;Nixon Park, York, Pa&quot;, &quot;Shirleysburg…
+## $ latitude                         &lt;dbl&gt; 39.88164, 40.29035, 44.03967, 41.3735…
+## $ longitude                        &lt;dbl&gt; -76.73221, -77.89905, -73.17649, -71.…
+## $ positional_accuracy              &lt;int&gt; NA, NA, NA, 14, NA, 1554, NA, NA, NA,…
+## $ private_place_guess              &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;…
+## $ private_latitude                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ private_longitude                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ public_positional_accuracy       &lt;int&gt; NA, NA, NA, 14, NA, 1554, NA, NA, NA,…
+## $ geoprivacy                       &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;…
+## $ taxon_geoprivacy                 &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;…
+## $ coordinates_obscured             &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FA…
+## $ positioning_method               &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;…
+## $ positioning_device               &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;manual&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+## $ species_guess                    &lt;chr&gt; &quot;Great Spangled Fritillary&quot;, &quot;Great S…
+## $ scientific_name                  &lt;chr&gt; &quot;Argynnis cybele&quot;, &quot;Argynnis cybele&quot;,…
+## $ common_name                      &lt;chr&gt; &quot;Great Spangled Fritillary&quot;, &quot;Great S…
+## $ iconic_taxon_name                &lt;chr&gt; &quot;Insecta&quot;, &quot;Insecta&quot;, &quot;Insecta&quot;, &quot;Ins…
+## $ taxon_id                         &lt;int&gt; 1456562, 1456562, 1456562, 1456562, 1…
+## $ taxon_family_name                &lt;chr&gt; &quot;Nymphalidae&quot;, &quot;Nymphalidae&quot;, &quot;Nympha…
+## $ taxon_species_name               &lt;chr&gt; &quot;Argynnis cybele&quot;, &quot;Argynnis cybele&quot;,…
+## $ plant_species_name               &lt;chr&gt; &quot;Asclepias syriaca&quot;, &quot;Asclepias syria…</code></pre>
+<pre class="r"><code>#grab just the columns I need
+less_data &lt;- data.frame(real_data[&quot;id&quot;],real_data[&quot;observed_on&quot;],
+                        real_data[&quot;scientific_name&quot;],
+                        real_data[&quot;plant_species_name&quot;]) 
+head(less_data)</code></pre>
+<pre><code>##       id observed_on   scientific_name plant_species_name
+## 1  22572   6/21/2011   Argynnis cybele  Asclepias syriaca
+## 2  24295    7/5/2011   Argynnis cybele  Asclepias syriaca
+## 3  41439   6/22/2010   Argynnis cybele Trifolium pratense
+## 4 116155   8/24/2012   Argynnis cybele   Buddleja davidii
+## 5 154515   6/20/2012 Argynnis atlantis Trifolium pratense
+## 6 154613    7/6/2012 Argynnis atlantis  Asclepias syriaca</code></pre>
+<pre class="r"><code>glimpse(less_data)</code></pre>
+<pre><code>## Rows: 2,434
+## Columns: 4
+## $ id                 &lt;int&gt; 22572, 24295, 41439, 116155, 154515, 154613, 176108…
+## $ observed_on        &lt;chr&gt; &quot;6/21/2011&quot;, &quot;7/5/2011&quot;, &quot;6/22/2010&quot;, &quot;8/24/2012&quot;, …
+## $ scientific_name    &lt;chr&gt; &quot;Argynnis cybele&quot;, &quot;Argynnis cybele&quot;, &quot;Argynnis cyb…
+## $ plant_species_name &lt;chr&gt; &quot;Asclepias syriaca&quot;, &quot;Asclepias syriaca&quot;, &quot;Trifoliu…</code></pre>
+<pre class="r"><code># clean date column to keep just the year
+less_data$observed_on[] &lt;- gsub(&quot;\\d+/\\d+/&quot;, 
+                                &quot;&quot;, 
+                                less_data$observed_on[])
+
+head(less_data)</code></pre>
+<pre><code>##       id observed_on   scientific_name plant_species_name
+## 1  22572        2011   Argynnis cybele  Asclepias syriaca
+## 2  24295        2011   Argynnis cybele  Asclepias syriaca
+## 3  41439        2010   Argynnis cybele Trifolium pratense
+## 4 116155        2012   Argynnis cybele   Buddleja davidii
+## 5 154515        2012 Argynnis atlantis Trifolium pratense
+## 6 154613        2012 Argynnis atlantis  Asclepias syriaca</code></pre>
+<pre class="r"><code>length(less_data[[1]])</code></pre>
+<pre><code>## [1] 2434</code></pre>
+<pre class="r"><code># clean data to keep only rows with plant at the species level
+good_data_mask &lt;- grep(&quot; &quot;,less_data$plant_species_name) #if there&#39;s a space, assume it&#39;s a good genus species name. vector of good indices
+less_data &lt;- less_data[good_data_mask, ] #keep only the good rows
+length(less_data[[1]])</code></pre>
+<pre><code>## [1] 1989</code></pre>
+<pre class="r"><code># clean data to keep only rows with butterfly at the species level
+good_data_mask &lt;- grep(&quot; &quot;,less_data$scientific_name) #if there&#39;s a space, assume it&#39;s a good genus species name. vector of good indices
+less_data &lt;- less_data[good_data_mask, ] #keep only the good rows
+length(less_data[[1]])</code></pre>
+<pre><code>## [1] 1985</code></pre>
+<p>Ok, now we have data</p>
+<pre class="r"><code># Group by year and scientific name, and count the number of unique associated plants for each butterfly that year
+dataByYear &lt;- less_data %&gt;%
+  group_by(observed_on,scientific_name) %&gt;%
+  summarize(plant_taxon_count=length(unique(plant_species_name)),n=n())</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;observed_on&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre class="r"><code>head(dataByYear)</code></pre>
+<pre><code>## # A tibble: 6 × 4
+## # Groups:   observed_on [5]
+##   observed_on scientific_name    plant_taxon_count     n
+##   &lt;chr&gt;       &lt;chr&gt;                          &lt;int&gt; &lt;int&gt;
+## 1 1974        Argynnis aphrodite                 1     1
+## 2 1974        Argynnis cybele                    1     3
+## 3 1976        Argynnis atlantis                  1     1
+## 4 1982        Argynnis atlantis                  1     1
+## 5 1984        Argynnis cybele                    1     1
+## 6 1990        Argynnis cybele                    1     4</code></pre>
+<pre class="r"><code>summary(dataByYear)</code></pre>
+<pre><code>##  observed_on        scientific_name    plant_taxon_count       n         
+##  Length:145         Length:145         Min.   : 1.000    Min.   :  1.00  
+##  Class :character   Class :character   1st Qu.: 1.000    1st Qu.:  1.00  
+##  Mode  :character   Mode  :character   Median : 3.000    Median :  4.00  
+##                                        Mean   : 5.959    Mean   : 13.69  
+##                                        3rd Qu.: 7.000    3rd Qu.: 10.00  
+##                                        Max.   :47.000    Max.   :258.00</code></pre>
+<pre class="r"><code># Group by year and scientific name, and count the number of unique associated plants for each butterfly that year
+dataBySpecies &lt;- less_data %&gt;%
+  group_by(scientific_name) %&gt;%
+  summarize(plant_taxon_count=length(unique(plant_species_name)),n=n())</code></pre>
+<pre class="r"><code>#### Does the number of plants a butterfly is associated with follow a normal distribution? let&#39;s try a histogram</code></pre>
+<pre class="r"><code>hist(dataBySpecies$n)</code></pre>
+<p><img src="Homework_6_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="answer-absolutely-not" class="section level4">
+<h4>Answer: absolutely not</h4>
+<p>library(MASS) require(“fitdistrplus”) x &lt;- df$plant_taxon_count
+print(x) plotdist(x,histo=TRUE,demp=TRUE) fit &lt;- fitdistr(x,“negative
+binomial”) print(fit) dnbinom(x,size=1.1200373,mu=5.9586053)</p>
+<p>curve( dnbinom(x,size=1,mu=6), # add=TRUE, lwd=2, col=“red”, from=0,
+to=50 ) ```</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

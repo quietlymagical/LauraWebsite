@@ -1,0 +1,104 @@
+---
+title: "Homework_6"
+author: "Laura J. Costello"
+date: "2025-02-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lab 6 
+#### I pulled down a real dataset from the iNaturalist project Pollination Interactions on Plants: https://www.inaturalist.org/projects/pollinator-interactions-on-plants-pip-of-the-ne-us
+#### Each row is an observation of a Fritillary butterfly in the northeast
+#### Each observation includes a date, butterfly taxon name, and the name of the plant taxon it was observed on (mandatory in this project)
+#### I want to look at how many plant species each butterfly species has been observed associating with
+
+```{r}
+# Read data in to a data frame from CSV exported from iNat
+getwd()
+list.files()
+library(tidyverse)
+setwd("C:/Users/ljcos/OneDrive/Documents/UVM/Spring 2025/Computational Biology/Lab5")
+real_data <- read.csv(file="real_data2-reduced.csv",
+                      header=TRUE,
+                      sep=",",
+                      fileEncoding="UTF-8"
+                      ) #nrows=400
+glimpse(real_data)
+
+#grab just the columns I need
+less_data <- data.frame(real_data["id"],real_data["observed_on"],
+                        real_data["scientific_name"],
+                        real_data["plant_species_name"]) 
+head(less_data)
+glimpse(less_data)
+
+# clean date column to keep just the year
+less_data$observed_on[] <- gsub("\\d+/\\d+/", 
+                                "", 
+                                less_data$observed_on[])
+
+head(less_data)
+length(less_data[[1]])
+
+# clean data to keep only rows with plant at the species level
+good_data_mask <- grep(" ",less_data$plant_species_name) #if there's a space, assume it's a good genus species name. vector of good indices
+less_data <- less_data[good_data_mask, ] #keep only the good rows
+length(less_data[[1]])
+
+# clean data to keep only rows with butterfly at the species level
+good_data_mask <- grep(" ",less_data$scientific_name) #if there's a space, assume it's a good genus species name. vector of good indices
+less_data <- less_data[good_data_mask, ] #keep only the good rows
+length(less_data[[1]])
+```
+
+Ok, now we have data
+
+```{r}
+# Group by year and scientific name, and count the number of unique associated plants for each butterfly that year
+dataByYear <- less_data %>%
+  group_by(observed_on,scientific_name) %>%
+  summarize(plant_taxon_count=length(unique(plant_species_name)),n=n())
+head(dataByYear)
+summary(dataByYear)
+
+# Group by year and scientific name, and count the number of unique associated plants for each butterfly that year
+dataBySpecies <- less_data %>%
+  group_by(scientific_name) %>%
+  summarize(plant_taxon_count=length(unique(plant_species_name)),n=n())
+
+```
+
+
+Does the number of plants a butterfly is associated with follow a normal distribution? let's try a histogram
+```{r}
+hist(dataBySpecies$n)
+
+#### Answer: absolutely not
+
+```
+
+Ok, how about a negative binomial? 
+
+```{r}
+library(MASS)
+require("fitdistrplus")
+x <- df$plant_taxon_count
+print(x)
+plotdist(x,histo=TRUE,demp=TRUE)
+fit <- fitdistr(x,"negative binomial")
+print(fit)
+dnbinom(x,size=1.1200373,mu=5.9586053)
+
+
+curve(
+  dnbinom(x,size=1,mu=6),
+#      add=TRUE,
+      lwd=2,
+      col="red",
+  from=0,
+  to=50
+)
+```
