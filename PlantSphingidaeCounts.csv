@@ -1,0 +1,282 @@
+"","plant_species_name","moth_taxon_count","numOb"
+"1","Abelia",2,2
+"2","Abelia × grandiflora",2,4
+"3","Achillea millefolium",1,1
+"4","Aesculus parviflora",2,7
+"5","Agapanthus",1,1
+"6","Agastache",3,6
+"7","Agastache foeniculum",2,8
+"8","Agastache mexicana",1,1
+"9","Agastache rugosa",1,1
+"10","Ajuga",1,1
+"11","Albizia julibrissin",1,1
+"12","Allium schoenoprasum",5,6
+"13","Amsonia",4,4
+"14","Amsonia hubrichtii",1,1
+"15","Amsonia tabernaemontana",2,2
+"16","Angiospermae",1,1
+"17","Apocynum androsaemifolium",3,22
+"18","Apocynum cannabinum",3,4
+"19","Aquilegia",1,3
+"20","Arctium lappa",1,2
+"21","Arctostaphylos uva-ursi",1,1
+"22","Asclepias",2,3
+"23","Asclepias incarnata",2,54
+"24","Asclepias incarnata pulchra",1,1
+"25","Asclepias syriaca",8,113
+"26","Asclepias tuberosa",1,1
+"27","Asteraceae",1,1
+"28","Atocion armeria",3,11
+"29","Begonia cucullata",1,1
+"30","Betonica officinalis",1,1
+"31","Browallia speciosa",1,1
+"32","Buddleja",2,7
+"33","Buddleja davidii",7,341
+"34","Buddleja × weyeriana",2,3
+"35","Calibrachoa",3,8
+"36","Calibrachoa parviflora",1,1
+"37","Campanula rapunculoides",1,1
+"38","Campsis radicans",1,1
+"39","Carduinae",1,1
+"40","Carduus acanthoides",3,12
+"41","Carduus nutans",1,1
+"42","Caryopteris × clandonensis",1,1
+"43","Catharanthus",2,2
+"44","Catharanthus roseus",2,3
+"45","Centaurea",4,21
+"46","Centaurea cyanus",1,1
+"47","Centaurea nigra",1,1
+"48","Centaurea stoebe",3,11
+"49","Centranthus ruber",1,1
+"50","Cephalanthus occidentalis",2,75
+"51","Ceratostigma plumbaginoides",2,5
+"52","Chamaenerion angustifolium",1,1
+"53","Chrysanthemum",1,1
+"54","Cichorium intybus",2,9
+"55","Cirsium",2,3
+"56","Cirsium arvense",2,2
+"57","Cirsium discolor",2,22
+"58","Cirsium muticum",1,3
+"59","Cirsium pumilum",2,6
+"60","Cirsium vulgare",3,12
+"61","Clematis virginiana",2,2
+"62","Cleome houtteana",3,3
+"63","Clerodendrum bungei",1,1
+"64","Clethra alnifolia",1,3
+"65","Clinopodium nepeta",1,1
+"66","Clinopodium vulgare",2,3
+"67","Coreopsis verticillata",1,1
+"68","Cornus amomum",1,1
+"69","Cosmos atrosanguineus",1,1
+"70","Dactylis glomerata",1,1
+"71","Dahlia",1,1
+"72","Dasiphora fruticosa",1,1
+"73","Daucus carota",1,1
+"74","Delphinium consolida",1,1
+"75","Dianthus",2,2
+"76","Dianthus barbatus",3,3
+"77","Dianthus chinensis",1,1
+"78","Dicentra formosa",1,2
+"79","Diervilla lonicera",1,2
+"80","Dipsacus fullonum",2,9
+"81","Dipsacus laciniatus",1,1
+"82","Echinacea",1,1
+"83","Echinacea purpurea",3,6
+"84","Echium vulgare",1,1
+"85","Elaeagnus umbellata",3,9
+"86","Erigeron",1,1
+"87","Erigeron philadelphicus",1,1
+"88","Euphorbia cyparissias",1,1
+"89","Eutrochium",1,6
+"90","Eutrochium fistulosum",1,1
+"91","Eutrochium maculatum",3,15
+"92","Galeopsis",1,2
+"93","Galeopsis bifida",1,1
+"94","Galium",1,1
+"95","Gaylussacia baccata",1,1
+"96","Geranium macrorrhizum",1,1
+"97","Geranium maculatum",2,4
+"98","Gerbera",1,1
+"99","Gladiolus",1,1
+"100","Glandularia",4,9
+"101","Glandularia canadensis",1,3
+"102","Glandularia × hybrida",2,4
+"103","Glechoma hederacea",1,1
+"104","Gomphrena",1,1
+"105","Gomphrena pulchella",1,1
+"106","Hemerocallis",6,9
+"107","Hemerocallis lilioasphodelus",1,2
+"108","Hesperis matronalis",3,25
+"109","Heuchera",1,1
+"110","Hibiscus",1,1
+"111","Hibiscus syriacus",1,1
+"112","Hosta",4,11
+"113","Houstonia caerulea",1,1
+"114","Hydrangea",2,2
+"115","Hylotelephium",1,1
+"116","Hyssopus",1,1
+"117","Ilex verticillata",1,2
+"118","Impatiens",1,1
+"119","Impatiens capensis",2,2
+"120","Impatiens hawkeri",1,1
+"121","Impatiens walleriana",1,2
+"122","Ipomoea purpurea",1,1
+"123","Iris",2,3
+"124","Iris prismatica",1,1
+"125","Iris sibirica",1,1
+"126","Iris versicolor",2,4
+"127","Itea virginica",1,1
+"128","Kalmia latifolia",2,3
+"129","Kolkwitzia amabilis",1,1
+"130","Lamiaceae",2,5
+"131","Lamium purpureum",1,1
+"132","Lantana",3,8
+"133","Lantana camara",5,19
+"134","Lantana montevidensis",1,1
+"135","Lathyrus",1,1
+"136","Lathyrus latifolius",1,1
+"137","Lavandula",1,1
+"138","Lavandula angustifolia",1,1
+"139","Leucanthemum",1,1
+"140","Leucothoe",1,1
+"141","Liatris",2,5
+"142","Liatris pycnostachya",1,1
+"143","Liatris spicata",2,6
+"144","Ligustrum",1,1
+"145","Liliaceae",2,2
+"146","Liliales",1,1
+"147","Lilium",3,4
+"148","Lilium candidum",1,1
+"149","Lilium speciosum",1,1
+"150","Linaria vulgaris",1,1
+"151","Linnaea borealis",1,1
+"152","Lobelia",1,2
+"153","Lobelia erinus",2,2
+"154","Lobelia siphilitica",2,5
+"155","Lobularia maritima",1,1
+"156","Lonicera",3,5
+"157","Lonicera japonica",1,1
+"158","Lonicera morrowii",1,1
+"159","Lonicera periclymenum",1,1
+"160","Lonicera sempervirens",2,3
+"161","Lupinus",1,1
+"162","Lysimachia clethroides",2,13
+"163","Lythrum alatum",1,1
+"164","Lythrum salicaria",3,35
+"165","Mandevilla sanderi",1,1
+"166","Melanium",2,2
+"167","Mentha",1,1
+"168","Mertensia virginica",1,1
+"169","Micranthes virginiensis",1,1
+"170","Mimulus ringens",1,2
+"171","Mirabilis jalapa",1,1
+"172","Monarda",2,49
+"173","Monarda citriodora",1,1
+"174","Monarda didyma",6,153
+"175","Monarda fistulosa",4,589
+"176","Monarda media",2,3
+"177","Monarda punctata",1,1
+"178","Muscari",1,1
+"179","Nepeta",3,8
+"180","Nepeta cataria",1,1
+"181","Nepeta × faassenii",3,19
+"182","Ocimum",1,1
+"183","Oenothera",2,2
+"184","Oenothera biennis",1,1
+"185","Orchidaceae",1,1
+"186","Packera",1,1
+"187","Paeonia",2,2
+"188","Pelargonium",5,5
+"189","Penstemon digitalis",2,2
+"190","Petunia",8,38
+"191","Petunia × atkinsiana",2,6
+"192","Philadelphus",2,2
+"193","Philadelphus coronarius",2,2
+"194","Phlox",4,19
+"195","Phlox divaricata",4,8
+"196","Phlox maculata",2,2
+"197","Phlox paniculata",7,174
+"198","Phlox subulata",4,7
+"199","Physocarpus opulifolius",1,1
+"200","Physostegia virginiana",2,2
+"201","Pilosella",1,1
+"202","Pilosella aurantiaca",1,2
+"203","Pilosella caespitosa",2,3
+"204","Pilosella officinarum",1,1
+"205","Platanthera blephariglottis",1,2
+"206","Platanthera ciliaris",1,1
+"207","Platanthera psycodes",1,1
+"208","Pleroma urvilleanum",1,1
+"209","Pluchea odorata",2,3
+"210","Pontederia cordata",2,26
+"211","Prunella vulgaris",2,5
+"212","Prunus",1,1
+"213","Pycnanthemum",1,1
+"214","Pycnanthemum verticillatum pilosum",2,2
+"215","Raphanus raphanistrum",1,1
+"216","Rhododendron",4,12
+"217","Rhododendron canadense",1,1
+"218","Rhododendron groenlandicum",1,1
+"219","Rhododendron maximum",1,1
+"220","Rhododendron prinophyllum",4,5
+"221","Rhododendron viscosum",1,1
+"222","Rosa",1,1
+"223","Rubus",2,2
+"224","Rudbeckia",1,1
+"225","Salix",1,1
+"226","Salvia",5,7
+"227","Salvia farinacea",1,1
+"228","Salvia guaranitica",1,1
+"229","Salvia officinalis",2,3
+"230","Saponaria officinalis",5,8
+"231","Scabiosa",1,1
+"232","Scorzoneroides autumnalis",1,1
+"233","Scutellaria incana",2,3
+"234","Silene coronaria",2,3
+"235","Silene flos-cuculi",2,3
+"236","Silene latifolia",1,1
+"237","Silene rubella",1,1
+"238","Solanum lycopersicum",1,1
+"239","Solidago",1,1
+"240","Spiraea japonica",1,1
+"241","Stachys",1,1
+"242","Symphyotrichum",1,1
+"243","Syringa",4,15
+"244","Syringa meyeri",2,5
+"245","Syringa vulgaris",5,14
+"246","Tagetes",1,1
+"247","Taraxacum",5,10
+"248","Teucrium canadense",2,6
+"249","Teucrium chamaedrys",2,2
+"250","Tithonia rotundifolia",1,1
+"251","Trachelospermum jasminoides",1,1
+"252","Tradescantia",1,1
+"253","Trifolium pratense",5,20
+"254","Trifolium repens",2,2
+"255","Trillium grandiflorum",1,1
+"256","Vaccinium",1,1
+"257","Vaccinium angustifolium",2,2
+"258","Vaccinium corymbosum",1,1
+"259","Verbena",1,1
+"260","Verbena bonariensis",4,55
+"261","Verbena bonariensis bonariensis",1,1
+"262","Vernonia",1,1
+"263","Vernonia glauca",1,1
+"264","Vernonia noveboracensis",3,3
+"265","Veronica chamaedrys",1,1
+"266","Viburnum",1,2
+"267","Vicia",1,1
+"268","Vicia cracca",2,6
+"269","Vicia sativa",1,1
+"270","Vinca minor",1,1
+"271","Viola tricolor",1,1
+"272","Viola × williamsii",1,1
+"273","Viola × wittrockiana",1,1
+"274","Vitex agnus-castus",2,2
+"275","Weigela florida",2,2
+"276","Zinnia",5,19
+"277","Zinnia elegans",2,3
+"278","Zizia aurea",1,1
+"279","bird's-foot trefoils and deervetches",1,1
+"280","pasture thistle",1,1
+"281","unknown",3,3
