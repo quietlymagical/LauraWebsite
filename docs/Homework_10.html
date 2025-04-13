@@ -11,9 +11,9 @@
 
 <meta name="author" content="Laura J. Costello" />
 
-<meta name="date" content="2025-01-22" />
+<meta name="date" content="2025-04-12" />
 
-<title>Homework Links</title>
+<title>Lab10</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -265,22 +265,128 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Homework Links</h1>
+<h1 class="title toc-ignore">Lab10</h1>
 <h4 class="author">Laura J. Costello</h4>
-<h4 class="date">2025-01-22</h4>
+<h4 class="date">2025-04-12</h4>
 
 </div>
 
 
-<p>Week 2 Homework <a href="HW1.html">HW2 Link</a></p>
-<p>Week 3 Homework <a href="Homework_3.html">HW3 Link</a></p>
-<p>Week 4 Homework <a href="Homework_4.html">HW4 Link</a></p>
-<p>Week 5 Homework <a href="Homework_5.html">HW5 Link</a></p>
-<p>Week 6 Homework <a href="Homework_6.html">HW6 Link</a></p>
-<p>Week 7 Homework <a href="Homework_7.html">HW7 Link</a></p>
-<p>Week 8 Homework <a href="Homework_8.html">HW8 Link</a></p>
-<p>Week 9 Homework <a href="Homework_9.html">HW9 Link</a></p>
-<p>Week 10 Homework <a href="Homework_10.html">HW10 Link</a></p>
+<pre><code>## Warning: package &#39;ggtext&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Warning: package &#39;ggthemes&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre><code>## Warning: package &#39;ggbeeswarm&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Loading required package: colorspace</code></pre>
+<pre><code>## Warning: package &#39;waffle&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Warning: package &#39;ggridges&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## ---- Compiling #TidyTuesday Information for 2020-07-14 ----
+## --- There is 1 file available ---
+## 
+## 
+## ── Downloading files ───────────────────────────────────────────────────────────
+## 
+##   1 of 1: &quot;astronauts.csv&quot;
+## ---- Compiling #TidyTuesday Information for 2020-07-14 ----
+## --- There is 1 file available ---
+## 
+## 
+## ── Downloading files ───────────────────────────────────────────────────────────
+## 
+##   1 of 1: &quot;astronauts.csv&quot;</code></pre>
+<p>Let’s do a beeswarm to show how the activity of the US and
+USSR/Russian space programs have varied over time</p>
+<p>And just to cringe, let’s color it by gender</p>
+<pre class="r"><code># To make the colored dots visually group, let&#39;s sort the dataframe first (hacky - not guaranteed)
+through_time_beeswarm &lt;- astronauts %&gt;%
+  filter(nationality %in% c(&quot;U.S.&quot;,&quot;U.S.S.R/Russia&quot;)) %&gt;%
+  arrange(sex) %&gt;%
+  ggplot(aes(y=nationality,x=year_of_mission,color=sex)) +
+  geom_beeswarm() +
+  labs(
+    title = &quot;Fluxuation in Astronaut-Missions Through Time&quot;,
+    subtitle = &quot;Each dot is an astronaut on a mission in the specified year&quot;,
+    x = &quot;Mission Year&quot;,
+    y = &quot;US vs. USSR/Russia&quot;,
+    color = &quot;Sex&quot;,
+    caption = &quot;Data: TidyTuesday astronauts&quot;
+  ) + 
+  theme(plot.title = element_text(face = &quot;bold&quot;, size = 14))
+through_time_beeswarm</code></pre>
+<p><img src="Homework_10_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>ggsave(&quot;through_time_beeswarm.pdf&quot;, through_time_beeswarm, width = 11, height = 8.5, units = &quot;in&quot;)</code></pre>
+<p>Let’s lean in to the gender cringe and look at proportions of male
+and female astronauts between the US and USSR/Russia and overall with a
+pie chart</p>
+<pre class="r"><code>my_cols &lt;- c(&quot;#FFB6C1&quot;,&quot;#FF69B4&quot;,&quot;#87CEFA&quot;,&quot;#1E90FF&quot;)
+gender_pie &lt;- astronauts %&gt;%
+  filter(nationality %in% c(&quot;U.S.&quot;,&quot;U.S.S.R/Russia&quot;)) %&gt;%
+  group_by(name,sex,nationality) %&gt;%
+  summarize(count=n(),.groups=&quot;drop&quot;) %&gt;%
+  mutate(group=paste(sex,nationality,sep=&quot;-&quot;)) %&gt;%
+  ggplot(aes(x=&quot;&quot;,y=count,fill=group)) +
+  geom_col() +
+  coord_polar(theta=&quot;y&quot;)  +
+  scale_fill_manual(values = my_cols) +
+  labs(
+    title = &quot;Astronaut Sex: U.S. and U.S.S.R/Russia&quot;,
+    fill = &quot;Sex-Nationality&quot;,
+    caption = &quot;Data: TidyTuesday astronauts&quot;
+  ) + 
+  theme(plot.title = element_text(face = &quot;bold&quot;, size = 14))
+gender_pie</code></pre>
+<p><img src="Homework_10_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>ggsave(&quot;gender_pie.pdf&quot;, gender_pie, width = 11, height = 8.5, units = &quot;in&quot;)</code></pre>
+<p>Ok, let’s look at distribution of astronauts by nationality through
+time with a waffle plot</p>
+<pre class="r"><code>nationality_waffle &lt;- astronauts %&gt;%
+  filter(year_of_mission &gt;= 2000) %&gt;%
+  count(year_of_mission,nationality) %&gt;%
+  ggplot(aes(fill=nationality,values=n)) +
+  geom_waffle(color=&quot;white&quot;,size=.25,n_rows=3,flip=TRUE) +
+  facet_wrap(~year_of_mission, nrow=2, strip.position=&quot;bottom&quot;) +
+  scale_x_discrete() +
+  scale_y_continuous() +
+  coord_equal() +
+  labs(title=&quot;International Composition of Astronauts&quot;,
+       subtitle = &quot;Since 2000&quot;) +
+  theme_minimal() +
+  theme(
+    legend.position = &quot;top&quot;,
+  )
+nationality_waffle</code></pre>
+<p><img src="Homework_10_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>ggsave(&quot;nationality_waffle.pdf&quot;, nationality_waffle, width = 11, height = 8.5, units = &quot;in&quot;)</code></pre>
+<p>Lovely. now, let’s see how EV time varies based on occupation with a
+ridgeline plot</p>
+<pre class="r"><code>EVA_ridgeline &lt;- astronauts %&gt;%
+  filter(eva_hrs_mission &gt;= 1) %&gt;%
+  mutate(occupation = recode(occupation,
+          &quot;flight engineer&quot; = &quot;Flight engineer&quot;,
+          &quot;commander&quot; = &quot;Commander&quot;,
+          &quot;pilot&quot; = &quot;Pilot&quot;
+          )) %&gt;%
+  ggplot(aes(x=eva_hrs_mission,y=occupation,fill=occupation)) +
+  geom_density_ridges(scale = 1,jittered_points = TRUE) +
+  theme_ridges() + 
+  theme(legend.position = &quot;none&quot;) +
+  xlab(&quot;Hours Spent on EVA Mission&quot;) +
+  ylab(&quot;&quot;) +
+  labs(
+    title = &quot;Time Spent on Extra-Vehicular Assignments by Occupation&quot;,
+    caption = &quot;Data: TidyTuesday astronauts&quot;
+  ) 
+EVA_ridgeline</code></pre>
+<pre><code>## Picking joint bandwidth of 2.77</code></pre>
+<p><img src="Homework_10_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>ggsave(&quot;EVA_ridgeline.pdf&quot;, EVA_ridgeline, width = 11, height = 8.5, units = &quot;in&quot;)</code></pre>
+<pre><code>## Picking joint bandwidth of 2.77</code></pre>
 
 
 
